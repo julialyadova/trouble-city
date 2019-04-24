@@ -107,7 +107,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\center.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\house_6_144.png" />
   </ItemGroup>
@@ -125,6 +127,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\house_2_144.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\laser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meteorite_crash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\meteorite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

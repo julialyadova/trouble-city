@@ -63,6 +63,16 @@ namespace trouble_city {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap center {
+            get {
+                object obj = ResourceManager.GetObject("center", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap house_1 {
             get {
                 object obj = ResourceManager.GetObject("house_1", resourceCulture);
@@ -116,6 +126,36 @@ namespace trouble_city {
         public static System.Drawing.Bitmap house_6 {
             get {
                 object obj = ResourceManager.GetObject("house_6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap laser {
+            get {
+                object obj = ResourceManager.GetObject("laser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap meteorite {
+            get {
+                object obj = ResourceManager.GetObject("meteorite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap meteorite_crash {
+            get {
+                object obj = ResourceManager.GetObject("meteorite_crash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

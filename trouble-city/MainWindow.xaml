@@ -5,13 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:trouble_city"
         mc:Ignorable="d"
-        Title="MainWindow" Height="460"  Width="700" MinHeight="400" MinWidth="600">
+        Title="MainWindow" Height="768"  Width="1024">
     <Grid>
-        <WrapPanel x:Name="CityPanel" Height="100" FlowDirection="RightToLeft" Margin="0,330,0,0">
-            <Image Source="c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\Resources\house_1_144.png"></Image>
-            <Image Source="c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\Resources\house_3_144.png"></Image>
-            <Image Source="c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\Resources\house_2_144.png"></Image>
-            <Image Source="c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\Resources\house_4_144.png"></Image>
+        <WrapPanel x:Name="CityPanel" Height="100" FlowDirection="RightToLeft" Margin="0,320,200,0">
         </WrapPanel>
     </Grid>
 </Window>
