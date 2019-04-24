@@ -1,0 +1,18 @@
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\bin\Debug\trouble-city.exe.config
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\bin\Debug\trouble-city.exe
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\bin\Debug\trouble-city.pdb
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\obj\Debug\trouble-city.csprojResolveAssemblyReference.cache
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\obj\Debug\MainWindow.g.cs
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\obj\Debug\App.g.cs
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\obj\Debug\trouble-city_MarkupCompile.cache
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\obj\Debug\trouble-city_MarkupCompile.lref
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\obj\Debug\MainWindow.baml
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\obj\Debug\trouble-city.g.resources
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\obj\Debug\trouble_city.Properties.Resources.resources
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\obj\Debug\trouble-city.csproj.GenerateResource.Cache
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\obj\Debug\trouble-city.exe
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\obj\Debug\trouble-city.pdb
+c:\users\julia\documents\visual studio 2015\Projects\trouble-city\trouble-city\obj\Debug\trouble_city.Resource1.resources
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\bin\Debug\trouble-city.exe.config
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\trouble-city.exe
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\trouble-city.pdb
