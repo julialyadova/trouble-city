@@ -8,5 +8,17 @@ namespace trouble_city
 {
     class Meteorite
     {
+        public int Size = 1;
+        Vector position;
+
+        public void Act()
+        {
+
+        }
+
+        public bool IsTriggered(Shot shot)
+        {
+            return false;
+        }
     }
 }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace trouble_city
 {
-    class City
+    class Shot
     {
-        public int Health;
+        Vector position;
 
-        public void AddHouse()
+        public void Act()
         {
 
         }

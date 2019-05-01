@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace trouble_city
 {
-    class City
+    class Vector
     {
-        public int Health;
-
-        public void AddHouse()
+        public int X;
+        public int Y;
+        public Vector(int x, int y)
         {
-
+            X = x;
+            Y = y;
         }
     }
 }

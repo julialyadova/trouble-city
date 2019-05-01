@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace trouble_city
 {
-    class City
+    class Blaster
     {
-        public int Health;
+        public double RotationAngle = 0;
+        
+        public void Act()
+        {
 
-        public void AddHouse()
+        }
+
+        public void Shoot()
         {
 
         }

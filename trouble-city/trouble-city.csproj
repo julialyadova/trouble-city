@@ -56,26 +56,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Blaster.cs" />
+    <Compile Include="MainWindow.xaml.cs" />
+    <Compile Include="Shot.cs" />
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vector.cs" />
     <Page Include="Images.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="City.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -106,34 +106,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Images\center.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Images\house_6_144.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Images\house_5_144.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Images\house_4_144.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Images\house_1_144.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Images\house_3_144.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Images\house_2_144.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Images\laser.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="bin\Debug\Images\meteorite_crash.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\Images\meteorite.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\Images\background.bmp" />
@@ -154,9 +127,6 @@
     <None Include="bin\Debug\Images\backgroundPixel.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Images\Image1.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -173,6 +143,27 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="bin\Debug\Images\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Images\house1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Images\house2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Images\house3.png" />
+    <Resource Include="bin\Debug\Images\house4.png" />
+    <Resource Include="bin\Debug\Images\house5.png" />
+    <Resource Include="bin\Debug\Images\house6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Images\center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Images\meteorite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Images\laser.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
