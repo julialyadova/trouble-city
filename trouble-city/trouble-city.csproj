@@ -56,11 +56,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Resource1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resource1.resx</DependentUpon>
+    <Compile Include="UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
+    <Page Include="Images.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -74,6 +76,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Meteorite.cs" />
@@ -90,14 +96,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resource1.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -108,34 +106,73 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\center.png" />
+    <None Include="bin\Debug\Images\center.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\house_6_144.png" />
+    <None Include="bin\Debug\Images\house_6_144.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\house_5_144.png" />
+    <None Include="bin\Debug\Images\house_5_144.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\house_4_144.png" />
+    <None Include="bin\Debug\Images\house_4_144.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\house_1_144.png" />
+    <None Include="bin\Debug\Images\house_1_144.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\house_3_144.png" />
+    <None Include="bin\Debug\Images\house_3_144.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\house_2_144.png" />
+    <None Include="bin\Debug\Images\house_2_144.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\laser.png" />
+    <None Include="bin\Debug\Images\laser.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\meteorite_crash.png" />
+    <None Include="bin\Debug\Images\meteorite_crash.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\meteorite.png" />
+    <None Include="bin\Debug\Images\meteorite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\background.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\saveIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\exitIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\background.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\backgroundPixel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Images\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Images\heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Images\backgroundPixel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Images\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bin\Debug\Images\save.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -26,5 +26,8 @@ C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\troubl
 C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\MainWindow.baml
 C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\trouble-city.g.resources
 C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\trouble_city.Properties.Resources.resources
-C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\trouble_city.Resource1.resources
 C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\trouble-city.csproj.GenerateResource.Cache
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\UserControl1.g.cs
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\UserControl1.baml
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\App.baml
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\Images.baml

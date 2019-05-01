@@ -8,5 +8,7 @@ namespace trouble_city
 {
     class City
     {
+        public int Health;
+        public int[] HousesPositions;
     }
 }
