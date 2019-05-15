@@ -25,7 +25,7 @@ namespace trouble_city
         public MainWindow()
         {
             InitializeComponent();
+            BlasterAngle.Angle = 30;
         }
-
     }
 }

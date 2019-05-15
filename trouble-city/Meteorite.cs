@@ -6,19 +6,35 @@ using System.Threading.Tasks;
 
 namespace trouble_city
 {
-    class Meteorite
+    class Meteorite: IVisualised
     {
-        public int Size = 1;
-        Vector position;
+        public int Size = 100;
+        public readonly string ImageName = "meteorite.png";
+        public int Health { get { return Size; } set { if (value <= 0) Destroy(); } }
+        public Vector Position { get; set; }
+        Vector direction;
 
         public void Act()
         {
-
+            Position = new Vector(Position.X + direction.X, Position.Y + direction.Y);
+            foreach (var other in State.MovingObjects)
+            {
+                if (other == this) continue;
+                if (other.IsTriggered(this as IVisualised))
+                {
+                    other.Health -= Health;
+                    Health -= other.Health;
+                }
+            }
         }
 
-        public bool IsTriggered(Shot shot)
+        public bool IsTriggered(IVisualised other)
         {
-            return false;
+            return (Math.Sqrt(other.Position.X - Position.X)
+                    + Math.Sqrt(other.Position.X - Position.X)
+                    < Math.Sqrt(0.4 * Size));
         }
+
+        public void Destroy() => State.MovingObjects.Remove(this);
     }
 }

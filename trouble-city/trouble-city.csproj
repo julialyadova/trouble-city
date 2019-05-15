@@ -57,8 +57,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Blaster.cs" />
+    <Compile Include="IVisualised.cs" />
     <Compile Include="MainWindow.xaml.cs" />
     <Compile Include="Shot.cs" />
+    <Compile Include="State.cs" />
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
@@ -106,25 +108,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Images\meteorite_crash.png" />
+    <None Include="Images\meteorite_crash.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Images\background.bmp" />
+    <None Include="Images\background.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Images\background.jpg" />
+    <None Include="Images\background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Images\saveIcon.png" />
+    <None Include="Images\saveIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Images\exitIcon.png" />
+    <None Include="Images\exitIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Images\background.gif" />
+    <None Include="Images\background.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Images\backgroundPixel.jpg" />
+    <None Include="Images\backgroundPixel.jpg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -133,37 +135,40 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Images\heart.png" />
+    <Resource Include="Images\heart.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Images\backgroundPixel.png" />
+    <Resource Include="Images\backgroundPixel.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Images\exit.png" />
+    <Resource Include="Images\exit.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Images\save.png" />
+    <Resource Include="Images\save.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Images\house1.png" />
+    <Resource Include="Images\house1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Images\house2.png" />
+    <Resource Include="Images\house2.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Images\house3.png" />
-    <Resource Include="bin\Debug\Images\house4.png" />
-    <Resource Include="bin\Debug\Images\house5.png" />
-    <Resource Include="bin\Debug\Images\house6.png" />
+    <Resource Include="Images\house3.png" />
+    <Resource Include="Images\house4.png" />
+    <Resource Include="Images\house5.png" />
+    <Resource Include="Images\house6.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Images\center.png" />
+    <Resource Include="Images\center.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Images\meteorite.png" />
+    <Resource Include="Images\meteorite.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Images\laser.png" />
+    <Resource Include="Images\laser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

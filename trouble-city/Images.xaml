@@ -1,5 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:trouble_city">
-    <ImageBrush x:Key="background" ImageSource="bin/Debug/Images/backgroundPixel.png"></ImageBrush>
+    <ImageBrush x:Key="background" ImageSource="Images/backgroundPixel.png"></ImageBrush>
 </ResourceDictionary>

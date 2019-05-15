@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace trouble_city
 {
-    class Vector
+    struct Vector
     {
-        public int X;
-        public int Y;
-        public Vector(int x, int y)
+        public readonly double X;
+        public readonly double Y;
+
+        public Vector(double x, double y)
         {
             X = x;
             Y = y;
