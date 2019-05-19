@@ -6,27 +6,16 @@ using System.Threading.Tasks;
 
 namespace trouble_city
 {
-    class Blaster: IVisualised
+    class Blaster
     {
         public double RotationAngle = 0;
-        public int Health { get { return 500; } set { if (value <= 0) Destroy(); } }
         public Vector Position { get; set; }
 
-        public void Act()
+        public Shot Shoot()
         {
-
+            var realAngle = Math.PI * (RotationAngle + 90) / 180;
+            var directionVector = new Vector(-Math.Acos(realAngle), -Math.Asin(realAngle));
+            return new Shot(Position, directionVector);
         }
-
-        public void Shoot()
-        {
-            //State.MovingObjects.Add(new Shot());
-        }
-
-        public bool IsTriggered(IVisualised other)
-        {
-            return false;
-        }
-
-        public void Destroy() => State.MovingObjects.Remove(this);
     }
 }

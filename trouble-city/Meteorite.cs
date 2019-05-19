@@ -8,11 +8,26 @@ namespace trouble_city
 {
     class Meteorite: IVisualised
     {
-        public int Size = 100;
+        public int Size = 144;
         public readonly string ImageName = "meteorite.png";
-        public int Health { get { return Size; } set { if (value <= 0) Destroy(); } }
+        public int Health
+        {
+            get { return Health; }
+            set
+            {
+                if (value <= 0) Destroy();
+                else Health = value;
+            }
+        }
         public Vector Position { get; set; }
         Vector direction;
+
+        public Meteorite(double positionX, Vector direction)
+        {
+            Health = 5 * Size;
+            Position = new Vector(positionX, 0);
+            this.direction = direction;
+        }
 
         public void Act()
         {

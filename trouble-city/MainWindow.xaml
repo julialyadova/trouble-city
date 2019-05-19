@@ -21,10 +21,10 @@
                 <Image Source="Images/exit.png"></Image>
             </Button>
         </WrapPanel>
-        <Canvas Grid.Row="1">
-            <Image Source="Images/meteorite.png" Height="100" Canvas.Top="0" Canvas.Left="0">
+        <Canvas x:Name="SkyCanvas" Grid.Row="1">
+            <Image x:Name="met1" Source="Images/meteorite.png" Height="100" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
-                    <RotateTransform Angle="-30"></RotateTransform>
+                    <RotateTransform x:Name="MeteoriteAngle" Angle="0"></RotateTransform>
                 </Image.RenderTransform>
             </Image>
             <Image Source="Images/center.png" Height="240" Canvas.Top="340" Canvas.Left="400"/>

@@ -31,3 +31,11 @@ C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\UserCo
 C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\UserControl1.baml
 C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\App.baml
 C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\Images.baml
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\obj\Debug\Images.g.cs
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\bin\Debug\Images\background.bmp
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\bin\Debug\Images\background.jpg
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\bin\Debug\Images\background.gif
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\bin\Debug\Images\backgroundPixel.jpg
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\bin\Debug\Images\meteorite_crash.png
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\bin\Debug\Images\saveIcon.png
+C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\bin\Debug\Images\exitIcon.png
