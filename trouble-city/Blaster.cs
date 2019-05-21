@@ -14,7 +14,7 @@ namespace trouble_city
         public Shot Shoot()
         {
             var realAngle = Math.PI * (RotationAngle + 90) / 180;
-            var directionVector = new Vector(-Math.Acos(realAngle), -Math.Asin(realAngle));
+            var directionVector = new Vector(-Math.Acos(realAngle), -Math.Asin(realAngle)).Normalize();
             return new Shot(Position, directionVector);
         }
     }

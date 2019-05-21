@@ -60,7 +60,7 @@
     <Compile Include="IVisualised.cs" />
     <Compile Include="MainWindow.xaml.cs" />
     <Compile Include="Shot.cs" />
-    <Compile Include="State.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="UserControl1.xaml.cs">
       <DependentUpon>UserControl1.xaml</DependentUpon>
     </Compile>
@@ -118,16 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\background.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\saveIcon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\exitIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -213,6 +203,13 @@
     <Resource Include="Images\shot.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arrow_left.png" />
+    <Resource Include="Images\arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\shoot_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

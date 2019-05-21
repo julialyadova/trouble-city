@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Controls;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,8 @@ namespace trouble_city
 {
     class Meteorite: IVisualised
     {
-        public int Size = 144;
+        public Image Img { get; }
+        public double Radius { get { return Img.RenderSize.Width / 2; } }
         public readonly string ImageName = "meteorite.png";
         public int Health
         {
@@ -20,11 +22,12 @@ namespace trouble_city
             }
         }
         public Vector Position { get; set; }
+
         Vector direction;
 
         public Meteorite(double positionX, Vector direction)
         {
-            Health = 5 * Size;
+            Health = 10 * (int) Math.Ceiling(Radius);
             Position = new Vector(positionX, 0);
             this.direction = direction;
         }
@@ -32,10 +35,10 @@ namespace trouble_city
         public void Act()
         {
             Position = new Vector(Position.X + direction.X, Position.Y + direction.Y);
-            foreach (var other in State.MovingObjects)
+            foreach (var other in Game.CanvasObjects)
             {
                 if (other == this) continue;
-                if (other.IsTriggered(this as IVisualised))
+                if (CrashedInto(other))
                 {
                     other.Health -= Health;
                     Health -= other.Health;
@@ -43,13 +46,12 @@ namespace trouble_city
             }
         }
 
-        public bool IsTriggered(IVisualised other)
+        public bool CrashedInto(IVisualised other)
         {
-            return (Math.Sqrt(other.Position.X - Position.X)
-                    + Math.Sqrt(other.Position.X - Position.X)
-                    < Math.Sqrt(0.4 * Size));
+            return (Math.Abs(Position.X - other.Position.X) < Radius + other.Radius)
+                && (Math.Abs(Position.Y - other.Position.Y) < Radius + other.Radius);
         }
 
-        public void Destroy() => State.MovingObjects.Remove(this);
+        public void Destroy() => Game.CanvasObjects.Remove(this);
     }
 }

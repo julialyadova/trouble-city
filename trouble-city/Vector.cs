@@ -21,7 +21,6 @@ namespace trouble_city
         {
             var length = Math.Sqrt(X * X + Y * Y);
             return new Vector(X / length, Y / length);
-        }
-        
+        }        
     }
 }

@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows.Controls;
 
 namespace trouble_city
 {
     interface IVisualised
     {
+        Image Img { get; }
+        double Radius { get; }
         int Health { get; set; }
         Vector Position { get;}
 
         void Act();
-        bool IsTriggered(IVisualised other);
         void Destroy();
     }
 }

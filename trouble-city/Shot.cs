@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Controls;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,8 @@ namespace trouble_city
 {
     class Shot: IVisualised
     {
+        public Image Img { get; }
+        public double Radius { get { return Img.RenderSize.Width / 2; } }
         public int Health
         {
             get { return Health; }
@@ -31,13 +34,6 @@ namespace trouble_city
             Position = new Vector(Position.X + direction.X, Position.Y + direction.Y);
         }
 
-        public bool IsTriggered(IVisualised other)
-        {
-            return (Math.Sqrt(other.Position.X - Position.X)
-                    + Math.Sqrt(other.Position.X - Position.X)
-                    < Math.Sqrt(0.4 * 10));
-        }
-
-        public void Destroy() => State.MovingObjects.Remove(this);
+        public void Destroy() => Game.CanvasObjects.Remove(this);
     }
 }

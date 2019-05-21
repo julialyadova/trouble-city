@@ -37,5 +37,3 @@ C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\bin\Debug\Images
 C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\bin\Debug\Images\background.gif
 C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\bin\Debug\Images\backgroundPixel.jpg
 C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\bin\Debug\Images\meteorite_crash.png
-C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\bin\Debug\Images\saveIcon.png
-C:\Users\JULIA\Documents\Repositories\trouble-city\trouble-city\bin\Debug\Images\exitIcon.png

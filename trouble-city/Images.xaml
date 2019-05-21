@@ -3,5 +3,4 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:trouble_city">
     <ImageBrush x:Key="background" ImageSource="Images/backgroundPixel.png"></ImageBrush>
-    <ImageBrush x:Name="meteorite"  x:Key="meteorite" ImageSource="Images/meteorite.png"></ImageBrush>
 </ResourceDictionary>

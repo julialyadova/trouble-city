@@ -19,9 +19,6 @@ using System.Windows.Threading;
 
 namespace trouble_city
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         Dictionary<IVisualised, Image> images = new Dictionary<IVisualised, Image>();
@@ -29,47 +26,32 @@ namespace trouble_city
         public MainWindow()
         {
             var timer = new DispatcherTimer();
-            timer.Tick += new EventHandler(Run);
-            timer.Tick += new EventHandler(InitiateMeteorite);
-            timer.Tick += new EventHandler(DecreaseHealth);
-            timer.Interval = new TimeSpan(0,0,0,0,500);
+            timer.Interval = new TimeSpan(0,0,0,0,20);
             timer.Start();
         }
 
-        void Run(object sender, EventArgs e)
-        {
-                MeteoriteAngle.Angle +=3;
-        }
-
-        void InitiateMeteorite(object sender, EventArgs e)
-        {
-            Image img = new Image();
-            BitmapImage src = new BitmapImage();
-            src.BeginInit();
-            src.UriSource = new Uri(@"..\..\Images\meteorite.jpg", UriKind.Relative);
-            src.EndInit();
-            img.Source = src;
-            SkyCanvas.Children.Add(img);
-            SkyCanvas.UpdateLayout();
-        }
-
-        void Act(object sender, EventArgs e)
-        {
-            foreach (var gameObject in State.MovingObjects)
-            {
-                if (!images.ContainsKey(gameObject))
-                {
-                    SkyCanvas.Children.Remove(images[gameObject]);
-                    images.Remove(gameObject);
-                }
-                gameObject.Act();
-            }
-        }
+        //void MoveNeteorite(object sender, EventArgs e)
+        //{
+        //    MeteoriteAngle.Angle +=3;
+        //    Canvas.SetLeft(MeteoriteImg, left);
+        //    Canvas.SetTop(MeteoriteImg, top);
+        //    left += 4;
+        //    top +=4;
+        //}
 
         public void DecreaseHealth(object sender, EventArgs e)
         {
             if (HealthPanel.Children.Count == 0) return;
             HealthPanel.Children.RemoveAt(0);
+        }
+
+        private void TurnRight_Click(object sender, RoutedEventArgs e) => BlasterRotation.Angle += 5;
+
+        private void TurnLeft_Click(object sender, RoutedEventArgs e) => BlasterRotation.Angle -= 5;
+
+        private void Shoot_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 
