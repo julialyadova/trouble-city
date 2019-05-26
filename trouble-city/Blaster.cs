@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace trouble_city
 {
@@ -11,11 +9,11 @@ namespace trouble_city
         public double RotationAngle = 0;
         public Vector Position { get; set; }
 
-        public Shot Shoot()
+        public void Shoot()
         {
             var realAngle = Math.PI * (RotationAngle + 90) / 180;
             var directionVector = new Vector(-Math.Acos(realAngle), -Math.Asin(realAngle)).Normalize();
-            return new Shot(Position, directionVector);
+            Game.CanvasObjects.Add(new Shot(directionVector));
         }
     }
 }

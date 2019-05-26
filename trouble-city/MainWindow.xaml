@@ -14,6 +14,9 @@
             <RowDefinition Height="6*" ></RowDefinition>
         </Grid.RowDefinitions>
         <WrapPanel x:Name="TopMenu" Grid.Row="0" Opacity="0.5" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="StartButton" Margin="5,0,5,0" Click="StartButton_Click">
+                <Image Source="Images/shot.png"></Image>
+            </Button>
             <Button x:Name="SaveButton" Margin="5,0,5,0">
                 <Image Source="Images/save.png"></Image>
             </Button>
@@ -22,15 +25,9 @@
             </Button>
         </WrapPanel>
         <Canvas x:Name="SkyCanvas" Grid.Row="1">
-            <Image x:Name="MeteoriteImg" Source="Images/meteorite.png" 
-                   Height="100" RenderTransformOrigin="0.5,0.5">
-                <Image.RenderTransform>
-                    <RotateTransform x:Name="MeteoriteAngle" Angle="0"></RotateTransform>
-                </Image.RenderTransform>
-            </Image>
-            <Image Source="Images/center.png" Height="240" Canvas.Top="340" Canvas.Left="400"/>
+            <Image Source="Images/center.png" Width="240" Canvas.Top="340" Canvas.Left="400"/>
             <Image x:Name="Blaster" Source="Images/laser.png" 
-                   Height="144" Canvas.Top="340" Canvas.Left="430" Width="155" RenderTransformOrigin="0.5,0.5">
+                   Height="140" Canvas.Top="340" Canvas.Left="450" Width="140" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <RotateTransform x:Name="BlasterRotation" Angle="0">
                     </RotateTransform>

@@ -1,39 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Controls;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace trouble_city
 {
     class Shot: IVisualised
     {
         public Image Img { get; }
-        public double Radius { get { return Img.RenderSize.Width / 2; } }
+        public int Radius { get { return (int)Img.Width / 2; } }
         public int Health
         {
-            get { return Health; }
+            get { return health; }
             set
             {
                 if (value <= 0) Destroy();
-                else Health = value;
+                else health = value;
             }
         }
-        public Vector Position { get; set; }
+        public Vector Position { get { return new Vector(Canvas.GetLeft(Img), Canvas.GetTop(Img)); } }
         Vector direction;
+        int health;
 
-        public Shot(Vector blasterPosition, Vector blasterDirection)
+        public Shot(Vector blasterDirection)
         {
-            Position = blasterPosition;
+            health = 20;
             direction = blasterDirection;
+            Img = new Image();
+            Img.Source = new BitmapImage(new Uri("pack://application:,,,/Images/shot.png"));
         }
 
         public void Act()
         {
-            Position = new Vector(Position.X + direction.X, Position.Y + direction.Y);
+            Canvas.SetTop(Img, Position.Y + direction.Y*10);
+            Canvas.SetLeft(Img, Position.X + direction.X*10);
         }
 
-        public void Destroy() => Game.CanvasObjects.Remove(this);
+        public void Destroy() => Game.Destroy(this);
     }
 }

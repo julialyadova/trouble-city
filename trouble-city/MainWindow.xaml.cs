@@ -22,22 +22,20 @@ namespace trouble_city
     public partial class MainWindow : Window
     {
         Dictionary<IVisualised, Image> images = new Dictionary<IVisualised, Image>();
+        DispatcherTimer timer = new DispatcherTimer();
 
         public MainWindow()
         {
-            var timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0,0,0,0,20);
             timer.Start();
         }
 
-        //void MoveNeteorite(object sender, EventArgs e)
-        //{
-        //    MeteoriteAngle.Angle +=3;
-        //    Canvas.SetLeft(MeteoriteImg, left);
-        //    Canvas.SetTop(MeteoriteImg, top);
-        //    left += 4;
-        //    top +=4;
-        //}
+        public void AddImage(Image img, int top, int left)
+        {
+            SkyCanvas.Children.Add(img);
+            Canvas.SetTop(img, top);
+            Canvas.SetLeft(img, left);
+        }
 
         public void DecreaseHealth(object sender, EventArgs e)
         {
@@ -45,13 +43,26 @@ namespace trouble_city
             HealthPanel.Children.RemoveAt(0);
         }
 
-        private void TurnRight_Click(object sender, RoutedEventArgs e) => BlasterRotation.Angle += 5;
+        private void TurnRight_Click(object sender, RoutedEventArgs e) 
+            => BlasterRotation.Angle += (BlasterRotation.Angle < 80) ? 10 : 0;
 
-        private void TurnLeft_Click(object sender, RoutedEventArgs e) => BlasterRotation.Angle -= 5;
+        private void TurnLeft_Click(object sender, RoutedEventArgs e)
+            => BlasterRotation.Angle -= (BlasterRotation.Angle > -80) ? 10 : 0;
 
         private void Shoot_Click(object sender, RoutedEventArgs e)
         {
+            if (Game.GameOver) return;
+            var realAngle = Math.PI *(90 - BlasterRotation.Angle) / 180;
+            var directionVector = new Vector(Math.Cos(realAngle),-Math.Sin(realAngle)).Normalize();
+            var shot = new Shot(directionVector);
+            Game.Add(shot, 400 + (int)(directionVector.Y*70),
+                512 + (int)(directionVector.X*70));
+        }
 
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            Game.Start(timer, SkyCanvas);
+            StartButton.IsEnabled = false;
         }
     }
 

@@ -5,7 +5,7 @@ namespace trouble_city
     interface IVisualised
     {
         Image Img { get; }
-        double Radius { get; }
+        int Radius { get; }
         int Health { get; set; }
         Vector Position { get;}
 

@@ -1,40 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Controls;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace trouble_city
 {
     class Meteorite: IVisualised
     {
         public Image Img { get; }
-        public double Radius { get { return Img.RenderSize.Width / 2; } }
+        public int Radius { get { return (int)Img.Width / 2; } }
         public readonly string ImageName = "meteorite.png";
         public int Health
         {
-            get { return Health; }
+            get { return health; }
             set
             {
                 if (value <= 0) Destroy();
-                else Health = value;
+                else health = value;
             }
         }
         public Vector Position { get; set; }
-
+        int health;
         Vector direction;
 
-        public Meteorite(double positionX, Vector direction)
+        public Meteorite(Vector direction)
         {
-            Health = 10 * (int) Math.Ceiling(Radius);
-            Position = new Vector(positionX, 0);
             this.direction = direction;
+            Img = new Image();
+            Img.Source = new BitmapImage(new Uri("pack://application:,,,/Images/meteorite.png"));
+            var size = new Random().Next(20, 200);
+            Img.Width = size;
+            health = size;
         }
 
         public void Act()
         {
-            Position = new Vector(Position.X + direction.X, Position.Y + direction.Y);
+            Canvas.SetTop(Img, Position.Y + direction.Y * 10);
+            Canvas.SetLeft(Img, Position.X + direction.X * 10);
             foreach (var other in Game.CanvasObjects)
             {
                 if (other == this) continue;
@@ -48,10 +49,11 @@ namespace trouble_city
 
         public bool CrashedInto(IVisualised other)
         {
+            return false;
             return (Math.Abs(Position.X - other.Position.X) < Radius + other.Radius)
                 && (Math.Abs(Position.Y - other.Position.Y) < Radius + other.Radius);
         }
 
-        public void Destroy() => Game.CanvasObjects.Remove(this);
+        public void Destroy() => Game.Destroy(this);
     }
 }
