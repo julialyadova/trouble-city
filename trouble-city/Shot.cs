@@ -7,7 +7,7 @@ namespace trouble_city
     class Shot: IVisualised
     {
         public Image Img { get; }
-        public int Radius { get { return (int)Img.Width / 2; } }
+        public int Radius { get; }
         public int Health
         {
             get { return health; }
@@ -18,15 +18,18 @@ namespace trouble_city
             }
         }
         public Vector Position { get { return new Vector(Canvas.GetLeft(Img), Canvas.GetTop(Img)); } }
+
         Vector direction;
         int health;
 
         public Shot(Vector blasterDirection)
         {
-            health = 20;
-            direction = blasterDirection;
             Img = new Image();
             Img.Source = new BitmapImage(new Uri("pack://application:,,,/Images/shot.png"));
+            Img.Width = 20;
+            Radius = 20;
+            health = 20;
+            direction = blasterDirection;
         }
 
         public void Act()

@@ -56,7 +56,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Blaster.cs" />
     <Compile Include="IVisualised.cs" />
     <Compile Include="MainWindow.xaml.cs" />
     <Compile Include="Shot.cs" />

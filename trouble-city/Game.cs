@@ -36,7 +36,7 @@ namespace trouble_city
 
         public static void CreateMeteorite(object sender, EventArgs e)
         {
-            Add(new Meteorite(new Vector(1, 1)), 0, new Random().Next(0, 400));
+            Add(new Meteorite(new Vector(1, 1)), -50, new Random().Next(0, 400));
         }
 
         public static void Add(IVisualised obj, int top, int left)
@@ -51,7 +51,6 @@ namespace trouble_city
         {
             return obj.Position.X < -100 || obj.Position.X > canvas.Width
                 || obj.Position.Y < -100 || obj.Position.Y > canvas.Height;
-
         }
 
         public static void Destroy(IVisualised obj) => canvas.Children.Remove(obj.Img);
