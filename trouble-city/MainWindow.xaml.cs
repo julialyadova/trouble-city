@@ -22,12 +22,12 @@ namespace trouble_city
     public partial class MainWindow : Window
     {
         Dictionary<IVisualised, Image> images = new Dictionary<IVisualised, Image>();
-        DispatcherTimer timer = new DispatcherTimer();
+        public DispatcherTimer Timer = new DispatcherTimer();
 
         public MainWindow()
         {
-            timer.Interval = new TimeSpan(0,0,0,0,20);
-            timer.Start();
+            Timer.Interval = new TimeSpan(0,0,0,0,20);
+            Timer.Start();
         }
 
         public void AddImage(Image img, int top, int left)
@@ -55,14 +55,15 @@ namespace trouble_city
             var realAngle = Math.PI *(90 - BlasterRotation.Angle) / 180;
             var directionVector = new Vector(Math.Cos(realAngle),-Math.Sin(realAngle)).Normalize();
             var shot = new Shot(directionVector);
-            Game.Add(shot, 400 + (int)(directionVector.Y*70),
-                512 + (int)(directionVector.X*70));
+            Game.Add(shot, 400 + (int)(directionVector.Y*75),
+                512 + (int)(directionVector.X*75));
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            Game.Start(timer, SkyCanvas);
+            Game.Start(this);
             StartButton.IsEnabled = false;
+            StartButton.Opacity = 0.5;
         }
     }
 

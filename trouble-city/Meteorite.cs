@@ -7,19 +7,10 @@ namespace trouble_city
     class Meteorite: IVisualised
     {
         public Image Img { get; }
-        public int Radius { get; }
-        public int Health
-        {
-            get { return health; }
-            set
-            {
-                if (value <= 0) Destroy();
-                else health = value;
-            }
-        }
         public Vector Position { get { return new Vector(Canvas.GetLeft(Img), Canvas.GetTop(Img)); } }
+        public int Radius { get; }
+        public int Health { get; set; }
 
-        int health;
         Vector direction;
 
         public Meteorite(Vector direction)
@@ -28,7 +19,7 @@ namespace trouble_city
             Img.Source = new BitmapImage(new Uri("pack://application:,,,/Images/meteorite.png"));
             var size = new Random().Next(40, 160);
             Img.Width = size;
-            health = size;
+            Health = size;
             Radius = size / 2;
             this.direction = direction;
         }
@@ -40,17 +31,21 @@ namespace trouble_city
             foreach (var other in Game.CanvasObjects)
             {
                 if (other == this || !CrashedInto(other)) continue;
+                var enemyHealth = other.Health;
                 other.Health -= Health;
-                Health -= other.Health;
+                Health -= enemyHealth;
+            }
+            if (Health <= 0)
+            {
+                Game.Add(new Debris(this), (int)Position.Y, (int)Position.X);
+                Game.Score += Radius * 2;
             }
         }
 
         public bool CrashedInto(IVisualised other)
         {
-            return (Math.Abs(Position.X - other.Position.X) < Radius + other.Radius)
-                && (Math.Abs(Position.Y - other.Position.Y) < Radius + other.Radius);
+            return (Math.Abs(Position.X + Radius - other.Position.X - other.Radius) < Radius + other.Radius)
+                && (Math.Abs(Position.Y + Radius - other.Position.Y - other.Radius) < Radius + other.Radius);
         }
-
-        public void Destroy() => Game.Destroy(this);
     }
 }

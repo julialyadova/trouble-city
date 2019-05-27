@@ -56,6 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Debris.cs" />
     <Compile Include="IVisualised.cs" />
     <Compile Include="MainWindow.xaml.cs" />
     <Compile Include="Shot.cs" />
@@ -106,9 +107,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\meteorite_crash.png">
+    <Resource Include="Images\meteorite_crash.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\background.bmp">
@@ -209,6 +210,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\shoot_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\play.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

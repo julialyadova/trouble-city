@@ -10,6 +10,5 @@ namespace trouble_city
         Vector Position { get;}
 
         void Act();
-        void Destroy();
     }
 }

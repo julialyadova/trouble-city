@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:trouble_city"
         mc:Ignorable="d"
-        Title="Trouble City" Height="768"  Width="1024" Icon="Images/shot.png">
+        Title="Trouble City" 
+        Height="768"  Width="1024" 
+        ResizeMode="NoResize"
+        Icon="Images/shot.png">
     <Grid Background="{StaticResource background}">
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"></RowDefinition>
@@ -13,9 +16,13 @@
             <RowDefinition Height="15*"></RowDefinition>
             <RowDefinition Height="6*" ></RowDefinition>
         </Grid.RowDefinitions>
-        <WrapPanel x:Name="TopMenu" Grid.Row="0" Opacity="0.5" Orientation="Horizontal" HorizontalAlignment="Right">
+        <WrapPanel x:Name="TopMenu" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock x:Name="EventTextBlock" Text="" Style="{StaticResource FontOptions}" />
+            <TextBlock Text="   Материалы: " Style="{StaticResource FontOptions}"/>
+            <TextBlock x:Name="ScoreTextBlock" Text="0" Style="{StaticResource FontOptions}"/>
+            <TextBlock FontSize="30" Text=" т. " Style="{StaticResource FontOptions}"/>
             <Button x:Name="StartButton" Margin="5,0,5,0" Click="StartButton_Click">
-                <Image Source="Images/shot.png"></Image>
+                <Image Source="Images/play.png"></Image>
             </Button>
             <Button x:Name="SaveButton" Margin="5,0,5,0">
                 <Image Source="Images/save.png"></Image>
@@ -35,12 +42,7 @@
             </Image>
         </Canvas>
         <WrapPanel x:Name="Houses" Grid.Row="2" HorizontalAlignment="Center">
-            <Image Source="Images/house4.png"></Image>
-            <Image Source="Images/house1.png"></Image>
-            <Image Source="Images/house3.png"></Image>
-            <Image Source="Images/house6.png"></Image>
-            <Image Source="Images/house5.png"></Image>
-            <Image Source="Images/house2.png"/>
+
         </WrapPanel>
         <WrapPanel x:Name="BlasterControlPanel" Grid.Row="3" HorizontalAlignment="Center">
             <Button x:Name="TurnLeft" Click="TurnLeft_Click">
@@ -60,13 +62,6 @@
             <Image Source="Images/heart.png"></Image>
             <Image Source="Images/heart.png"></Image>
             <Image Source="Images/heart.png"></Image>
-        </WrapPanel>
-        <WrapPanel x:Name="ShootsPanel" Grid.Row="3" HorizontalAlignment="Right" Margin="0,10,100,0" >
-            <Image Source="Images/shot.png"></Image>
-            <Image Source="Images/shot.png"></Image>
-            <Image Source="Images/shot.png"></Image>
-            <Image Source="Images/shot.png"></Image>
-            <Image Source="Images/shot.png"></Image>
         </WrapPanel>
     </Grid>
 </Window>
