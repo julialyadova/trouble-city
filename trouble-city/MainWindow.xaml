@@ -7,14 +7,15 @@
         mc:Ignorable="d"
         Title="Trouble City" 
         Height="768"  Width="1024" 
-        ResizeMode="NoResize"
+        SizeChanged="Window_SizeChanged"
+        MinHeight="768" MinWidth="1024"
         Icon="Images/shot.png">
     <Grid Background="{StaticResource background}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="8*"></RowDefinition>
-            <RowDefinition Height="65*"></RowDefinition>
-            <RowDefinition Height="15*"></RowDefinition>
-            <RowDefinition Height="6*" ></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="70*"></RowDefinition>
+            <RowDefinition Height="140"></RowDefinition>
+            <RowDefinition Height="5*" ></RowDefinition>
         </Grid.RowDefinitions>
         <WrapPanel x:Name="TopMenu" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
             <TextBlock x:Name="EventTextBlock" Text="" Style="{StaticResource FontOptions}" />
@@ -32,9 +33,9 @@
             </Button>
         </WrapPanel>
         <Canvas x:Name="SkyCanvas" Grid.Row="1">
-            <Image Source="Images/center.png" Width="240" Canvas.Top="340" Canvas.Left="400"/>
+            <Image x:Name="Center"  Source="Images/center.png" Width="240" Height="240" Canvas.Top="340" Canvas.Left="400"/>
             <Image x:Name="Blaster" Source="Images/laser.png" 
-                   Height="140" Canvas.Top="340" Canvas.Left="450" Width="140" RenderTransformOrigin="0.5,0.5">
+                   Canvas.Top="340" Canvas.Left="450" Width="140" Height="140" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <RotateTransform x:Name="BlasterRotation" Angle="0">
                     </RotateTransform>
@@ -55,7 +56,7 @@
                 <Image Source="Images/arrow_right.png"/>
             </Button>
         </WrapPanel>
-        <WrapPanel x:Name="HealthPanel" Grid.Row="3" HorizontalAlignment="Left" Margin="100,10,0,0" >
+        <WrapPanel x:Name="HealthPanel" Grid.Row="3" HorizontalAlignment="Left" Margin="100,0,0,0">
             <Image Source="Images/heart.png"></Image>
             <Image Source="Images/heart.png"></Image>
             <Image Source="Images/heart.png"></Image>

@@ -57,6 +57,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Debris.cs" />
+    <Compile Include="Explosion.cs" />
     <Compile Include="IVisualised.cs" />
     <Compile Include="MainWindow.xaml.cs" />
     <Compile Include="Shot.cs" />
@@ -213,6 +214,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\explosion.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -22,5 +22,11 @@ namespace trouble_city
             var length = Math.Sqrt(X * X + Y * Y);
             return new Vector(X / length, Y / length);
         }        
+
+        public static Vector FromAngle(double angle)
+        {
+            angle = Math.PI * angle / 180;
+            return new Vector(Math.Cos(angle), -Math.Sin(angle)).Normalize();
+        }
     }
 }

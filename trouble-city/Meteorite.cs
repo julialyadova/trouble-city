@@ -38,7 +38,17 @@ namespace trouble_city
             if (Health <= 0)
             {
                 Game.Add(new Debris(this), (int)Position.Y, (int)Position.X);
-                Game.Score += Radius * 2;
+                Game.Materials += Radius * 2;
+            }
+            if (Game.ReachedBottomLine(this))
+            {
+                Health = 0;
+                Game.Add(new Explosion(this), (int)Position.Y - Radius, (int)Position.X - Radius);
+                if (Game.InCityBounds(this))
+                {
+                    Game.SendMessage("Метеорит упал на город!");
+                    Game.DecreaseHealth();
+                }   
             }
         }
 
