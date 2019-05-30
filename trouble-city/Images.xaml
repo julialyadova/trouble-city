@@ -2,10 +2,13 @@
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:trouble_city">
-    <ImageBrush x:Key="background" ImageSource="Images/backgroundPixel.png"></ImageBrush>
+    <ImageBrush x:Key="background" ImageSource="Images/bg.png"></ImageBrush>
+    <ImageBrush x:Key="sky" ImageSource="Images/sky.png"></ImageBrush>
+    <ImageBrush x:Key="mountains" ImageSource="Images/mountains.png" AlignmentY="Bottom"></ImageBrush>
+    <Color x:Key="groundColor" R="55" G="48" B="47" A="255"></Color>
     <Style x:Key="FontOptions">
         <Setter Property="TextBlock.FontSize" Value="30" />
-        <Setter Property="TextBlock.Foreground" Value="Brown" />
+        <Setter Property="TextBlock.Foreground" Value="DarkRed" />
         <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
         <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
     </Style>

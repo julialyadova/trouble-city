@@ -15,6 +15,7 @@ namespace trouble_city
             InitializeComponent();
             Timer.Interval = new TimeSpan(0,0,0,0,20);
             Timer.Start();
+            Timer.Tick += new EventHandler(PlanetMovement);
         }
 
         private void TurnRight_Click(object sender, RoutedEventArgs e) 
@@ -36,10 +37,19 @@ namespace trouble_city
             StartButton.Opacity = 0.5;
         }
 
+        private void PlanetMovement(object sender, EventArgs e)
+        {
+            var planetX = Planet.Margin.Left;
+            if (planetX > Width + Planet.Width)
+                Planet.Margin = new Thickness(-Planet.Width, SkyCanvas.ActualHeight*0.25 , 0, 0);
+            else
+                Planet.Margin = new Thickness(Planet.Margin.Left+0.5, SkyCanvas.ActualHeight * 0.25, 0, 0);
+        }
+
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             Canvas.SetLeft(Center, (Width - Center.Width) / 2);
-            Canvas.SetTop(Center, SkyCanvas.ActualHeight - Center.Height + 100);
+            Canvas.SetTop(Center, SkyCanvas.ActualHeight - Center.Height-10);
             Canvas.SetLeft(Blaster, (Width - Blaster.Width) / 2);
             Canvas.SetTop(Blaster, Canvas.GetTop(Center));
             if (!Game.GameOver) Game.Resize();

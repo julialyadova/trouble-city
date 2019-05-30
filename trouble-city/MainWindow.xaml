@@ -9,14 +9,19 @@
         Height="768"  Width="1024" 
         SizeChanged="Window_SizeChanged"
         MinHeight="768" MinWidth="1024"
+        Background="{StaticResource sky}"
         Icon="Images/shot.png">
-    <Grid Background="{StaticResource background}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="70*"></RowDefinition>
-            <RowDefinition Height="140"></RowDefinition>
-            <RowDefinition Height="5*" ></RowDefinition>
+            <RowDefinition Height="5*"></RowDefinition>
         </Grid.RowDefinitions>
+        <Rectangle Grid.Row="2">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="{StaticResource groundColor}" />
+            </Rectangle.Fill>
+        </Rectangle>
         <WrapPanel x:Name="TopMenu" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
             <TextBlock x:Name="EventTextBlock" Text="" Style="{StaticResource FontOptions}" />
             <TextBlock Text="   Материалы: " Style="{StaticResource FontOptions}"/>
@@ -32,7 +37,9 @@
                 <Image Source="Images/exit.png"></Image>
             </Button>
         </WrapPanel>
-        <Canvas x:Name="SkyCanvas" Grid.Row="1">
+        <Image x:Name="Planet"  Grid.Row="1" Source="Images/planet.png" 
+               Width="240" Opacity="0.3" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="-240, 120,0,0"></Image>
+        <Canvas x:Name="SkyCanvas" Grid.Row="1" Background="{StaticResource mountains}">
             <Image x:Name="Center"  Source="Images/center.png" Width="240" Height="240" Canvas.Top="340" Canvas.Left="400"/>
             <Image x:Name="Blaster" Source="Images/laser.png" 
                    Canvas.Top="340" Canvas.Left="450" Width="140" Height="140" RenderTransformOrigin="0.5,0.5">
@@ -42,10 +49,9 @@
                 </Image.RenderTransform>
             </Image>
         </Canvas>
-        <WrapPanel x:Name="Houses" Grid.Row="2" HorizontalAlignment="Center">
-
+        <WrapPanel x:Name="Houses" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="120">
         </WrapPanel>
-        <WrapPanel x:Name="BlasterControlPanel" Grid.Row="3" HorizontalAlignment="Center">
+        <WrapPanel x:Name="BlasterControlPanel" Grid.Row="2" HorizontalAlignment="Center">
             <Button x:Name="TurnLeft" Click="TurnLeft_Click">
                 <Image Source="Images/arrow_left.png"/>
             </Button>
@@ -56,13 +62,13 @@
                 <Image Source="Images/arrow_right.png"/>
             </Button>
         </WrapPanel>
-        <WrapPanel x:Name="HealthPanel" Grid.Row="3" HorizontalAlignment="Left" Margin="100,0,0,0">
-            <Image Source="Images/heart.png"></Image>
-            <Image Source="Images/heart.png"></Image>
-            <Image Source="Images/heart.png"></Image>
-            <Image Source="Images/heart.png"></Image>
-            <Image Source="Images/heart.png"></Image>
-            <Image Source="Images/heart.png"></Image>
+        <WrapPanel x:Name="HealthPanel" Grid.Row="2" HorizontalAlignment="Left" Margin="100,0,0,0">
+            <Image Source="Images/heart.png" Margin="2"></Image>
+            <Image Source="Images/heart.png" Margin="2"></Image>
+            <Image Source="Images/heart.png" Margin="2"></Image>
+            <Image Source="Images/heart.png" Margin="2"></Image>
+            <Image Source="Images/heart.png" Margin="2"></Image>
+            <Image Source="Images/heart.png" Margin="2"></Image>
         </WrapPanel>
     </Grid>
 </Window>

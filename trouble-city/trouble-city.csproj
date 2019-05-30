@@ -139,11 +139,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\heart.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\backgroundPixel.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -217,6 +212,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\explosion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mountains.png" />
+    <Resource Include="Images\planet.png" />
+    <Resource Include="Images\sky.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\heart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
