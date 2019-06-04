@@ -13,15 +13,14 @@ namespace trouble_city
 
         Vector direction;
 
-        public Meteorite(Vector direction)
+        public Meteorite(Vector blasterDirection)
         {
-            Img = new Image();
-            Img.Source = new BitmapImage(new Uri("pack://application:,,,/Images/meteorite.png"));
+            Img = Game.GetImageByName("meteorite");
             var size = new Random().Next(40, 160);
             Img.Width = size;
             Health = size;
             Radius = size / 2;
-            this.direction = direction;
+            direction = blasterDirection;
         }
 
         public void Act()
@@ -43,7 +42,7 @@ namespace trouble_city
             if (Game.ReachedBottomLine(this))
             {
                 Health = 0;
-                Game.Add(new Explosion(this), (int)Position.Y - Radius, (int)Position.X - Radius);
+                Game.Add(new Explosion(this), (int)Position.Y - Radius*2, (int)Position.X - Radius);
                 if (Game.InCityBounds(this))
                 {
                     Game.SendMessage("Метеорит упал на город!");

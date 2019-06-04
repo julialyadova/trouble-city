@@ -2,6 +2,9 @@
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:trouble_city">
+    <WrapPanel x:Key="settings" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Button x:Name="SwitchSizeButton" Content="size"></Button>
+    </WrapPanel>
     <ImageBrush x:Key="background" ImageSource="Images/bg.png"></ImageBrush>
     <ImageBrush x:Key="sky" ImageSource="Images/sky.png"></ImageBrush>
     <ImageBrush x:Key="mountains" ImageSource="Images/mountains.png" AlignmentY="Bottom"></ImageBrush>

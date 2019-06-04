@@ -15,8 +15,7 @@ namespace trouble_city
 
         public Shot(Vector blasterDirection)
         {
-            Img = new Image();
-            Img.Source = new BitmapImage(new Uri("pack://application:,,,/Images/shot.png"));
+            Img = Game.GetImageByName("shot");
             Img.Width = 20;
             Radius = 10;
             Health = 20;

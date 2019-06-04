@@ -13,8 +13,7 @@ namespace trouble_city
 
         public Explosion(Meteorite meteor)
         {
-            Img = new Image();
-            Img.Source = new BitmapImage(new Uri("pack://application:,,,/Images/explosion.png"));
+            Img = Game.GetImageByName("explosion");
             Img.Width = meteor.Radius * 4;
             Health = 1;
         }

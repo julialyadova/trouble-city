@@ -12,26 +12,35 @@ namespace trouble_city
         static MainWindow window;
         static DispatcherTimer meteoriteTimer = new DispatcherTimer();
         static Vector centerPoint;
-        static int goal = 10;
-        static int rainAngle = -35;
+        static int goal;
+        static int rainAngle;
 
         public static Vector CenterPoint { get { return centerPoint; } }
-        public static bool GameOver = true;
+        public static bool GameOver =true;
         public static int Materials = 0;
         public static List<IVisualised> CanvasObjects { get { return canvasObjects; } }
         static List<IVisualised> canvasObjects = new List<IVisualised>();
         public static List<IVisualised> ToAddObjects = new List<IVisualised>();
 
-        public static void Start(MainWindow gameWindow)
+        public static void Initialize(MainWindow gameWindow) => window = gameWindow;
+
+        public static void Start()
         {
-            centerPoint = new Vector(Canvas.GetLeft(gameWindow.Blaster) + gameWindow.Blaster.Width / 2,
-                Canvas.GetTop(gameWindow.Blaster) + gameWindow.Blaster.Height/2);
+            if (window == null) throw new NullReferenceException("Initialize() must be called before Start()");
+            centerPoint = new Vector(Canvas.GetLeft(window.Blaster) + window.Blaster.Width / 2,
+                Canvas.GetTop(Game.window.Blaster) + window.Blaster.Height / 2);
+            goal = 10;
+            rainAngle = -35;
+            GameOver = false;
+            Materials = 0;
+            canvasObjects.Clear();
+            ToAddObjects.Clear();
+            RestoreHealth();
             meteoriteTimer.Interval = new TimeSpan(0, 0, 0, 5);
             meteoriteTimer.Start();
             meteoriteTimer.Tick += new EventHandler(CreateMeteorite);
-            window = gameWindow;
-            GameOver = false;
-            window.Timer.Tick += new EventHandler(Move);
+            window.Timer.IsEnabled = true;
+            window.GiveUpButton.IsEnabled = true;
         }
 
         public static void Resize()
@@ -71,13 +80,11 @@ namespace trouble_city
         public static void AddHouse()
         {
             Materials -= 200;
-            var houseImg = new Image();
             var n = new Random().Next(1, 6);
-            houseImg.Source = new BitmapImage(new Uri("pack://application:,,,/Images/house" + n + ".png"));
-            window.Houses.Children.Add(houseImg);
+            window.Houses.Children.Add(GetImageByName("house" + n));
             SendMessage("Построен новый дом!");
             rainAngle -= 5;
-            if (window.Houses.Children.Count == goal) EndGame("Победа!");
+            if (window.Houses.Children.Count == goal) End("Победа!");
         }
 
         public static void DecreaseHealth()
@@ -86,13 +93,30 @@ namespace trouble_city
             window.HealthPanel.Children.RemoveAt(0);
         }
 
-        public static void SendMessage(string text) => window.EventTextBlock.Text = text;
+        public static void RestoreHealth()
+        {
+            while (window.HealthPanel.Children.Count != 6) return;
+            window.HealthPanel.Children.Add(GetImageByName("heart"));
+        }
+
+        public static void SendMessage(string text)
+        {
+            window.EventTextBlock.Text = text;
+            window.EventTextBlock.Opacity = 1;
+        }
+
+        public static Image GetImageByName(string name)
+        {
+            var img = new Image();
+            img.Source = new BitmapImage(new Uri("pack://application:,,,/Images/" + name + ".png"));
+            return img;
+        }
 
         public static bool InCityBounds(IVisualised obj)
             => Math.Abs(obj.Position.X + obj.Radius - centerPoint.X) < window.Houses.ActualWidth / 2;
 
         public static bool ReachedBottomLine(IVisualised obj)
-            => obj.Position.Y + obj.Radius*2 >= window.SkyCanvas.ActualHeight + 100;
+            => obj.Position.Y + obj.Radius*2 >= window.SkyCanvas.ActualHeight;
 
         public static bool OutsideTheWindow(IVisualised obj)
         {
@@ -106,12 +130,25 @@ namespace trouble_city
             window.SkyCanvas.Children.Remove(obj.Img);
         }
 
-        static void EndGame(string text)
+        public static void SwitchOnPauseMode()
+        {
+            window.Timer.IsEnabled = !window.Timer.IsEnabled;
+            meteoriteTimer.IsEnabled = !meteoriteTimer.IsEnabled;
+            window.TopMenu.IsEnabled = !window.TopMenu.IsEnabled;
+            window.BlasterControlPanel.IsEnabled = !window.BlasterControlPanel.IsEnabled;
+        }
+
+        public static void End(string text)
         {
             SendMessage(text + " Общий счёт: " + (Materials + window.Houses.Children.Count*200));
             GameOver = true;
-            meteoriteTimer.Stop();
-            canvasObjects.Clear();
+            window.StartButton.IsEnabled = true;
+            window.GiveUpButton.IsEnabled = false;
+            window.StartButton.Opacity = 1;
+            meteoriteTimer = new DispatcherTimer();
+            window.StartButton.IsEnabled = true;
+            foreach (var obj in canvasObjects)
+                window.SkyCanvas.Children.Remove(obj.Img);
         }
     }
 }

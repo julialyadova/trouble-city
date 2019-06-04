@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:trouble_city"
         mc:Ignorable="d"
         Title="Trouble City" 
-        Height="768"  Width="1024" 
-        SizeChanged="Window_SizeChanged"
+        Width="1024" Height="768"
+        ResizeMode="NoResize"
         MinHeight="768" MinWidth="1024"
         Background="{StaticResource sky}"
         Icon="Images/shot.png">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="70*"></RowDefinition>
             <RowDefinition Height="5*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -22,18 +22,18 @@
                 <SolidColorBrush Color="{StaticResource groundColor}" />
             </Rectangle.Fill>
         </Rectangle>
-        <WrapPanel x:Name="TopMenu" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
-            <TextBlock x:Name="EventTextBlock" Text="" Style="{StaticResource FontOptions}" />
+        <WrapPanel x:Name="TopMenu" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" IsEnabled="True">
+            <TextBlock x:Name="EventTextBlock" Text="" Style="{StaticResource FontOptions}" Opacity="1"/>
             <TextBlock Text="   Материалы: " Style="{StaticResource FontOptions}"/>
             <TextBlock x:Name="ScoreTextBlock" Text="0" Style="{StaticResource FontOptions}"/>
             <TextBlock FontSize="30" Text=" т. " Style="{StaticResource FontOptions}"/>
             <Button x:Name="StartButton" Margin="5,0,5,0" Click="StartButton_Click">
                 <Image Source="Images/play.png"></Image>
             </Button>
-            <Button x:Name="SaveButton" Margin="5,0,5,0">
+            <Button x:Name="SettingsButton" Margin="5,0,5,0" Click="SettingsButton_Click">
                 <Image Source="Images/save.png"></Image>
             </Button>
-            <Button x:Name="ExitButton" Margin="5,0,5,0">
+            <Button x:Name="ExitButton" Margin="5,0,5,0" Click="ExitButton_Click">
                 <Image Source="Images/exit.png"></Image>
             </Button>
         </WrapPanel>
@@ -51,7 +51,7 @@
         </Canvas>
         <WrapPanel x:Name="Houses" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="120">
         </WrapPanel>
-        <WrapPanel x:Name="BlasterControlPanel" Grid.Row="2" HorizontalAlignment="Center">
+        <WrapPanel x:Name="BlasterControlPanel" Grid.Row="2" HorizontalAlignment="Center" IsEnabled="True">
             <Button x:Name="TurnLeft" Click="TurnLeft_Click">
                 <Image Source="Images/arrow_left.png"/>
             </Button>
@@ -62,13 +62,19 @@
                 <Image Source="Images/arrow_right.png"/>
             </Button>
         </WrapPanel>
-        <WrapPanel x:Name="HealthPanel" Grid.Row="2" HorizontalAlignment="Left" Margin="100,0,0,0">
-            <Image Source="Images/heart.png" Margin="2"></Image>
-            <Image Source="Images/heart.png" Margin="2"></Image>
-            <Image Source="Images/heart.png" Margin="2"></Image>
-            <Image Source="Images/heart.png" Margin="2"></Image>
-            <Image Source="Images/heart.png" Margin="2"></Image>
-            <Image Source="Images/heart.png" Margin="2"></Image>
+        <WrapPanel x:Name="Settings" Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" IsEnabled="False" Opacity="0">
+            <TextBlock Text="Настройки" HorizontalAlignment="Center" Style="{StaticResource FontOptions}" Margin="0,0,0,10"/>
+            <Button x:Name="SwitchSize" Width ="120" Content="1024 x 768" Click="SwitchSize_Click"/>
+            <Button Width ="120" Content="Продолжить" Click="SettingsButton_Click"/>
+            <Button x:Name="GiveUpButton" Width ="120" Content="Сдаться" Click="GiveUpButton_Click" IsEnabled="False"/>
+        </WrapPanel>
+        <WrapPanel x:Name="HealthPanel" Grid.Row="2" HorizontalAlignment="Left" Margin="40,0,0,0">
+            <Image Source="Images/heart.png"></Image>
+            <Image Source="Images/heart.png"></Image>
+            <Image Source="Images/heart.png"></Image>
+            <Image Source="Images/heart.png"></Image>
+            <Image Source="Images/heart.png"></Image>
+            <Image Source="Images/heart.png"></Image>
         </WrapPanel>
     </Grid>
 </Window>
