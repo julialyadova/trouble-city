@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Controls;
-using System.Windows.Media.Imaging;
+﻿using System.Windows.Controls;
 
 namespace trouble_city
 {
@@ -16,6 +14,7 @@ namespace trouble_city
             Img = Game.GetImageByName("meteorite_crash");
             Img.Width = meteor.Radius*2;
             Health = 1;
+            Game.PlaySound("crash");
         }
 
         public void Act()

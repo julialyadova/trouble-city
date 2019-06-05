@@ -113,17 +113,7 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\background.bmp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Images\background.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\background.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -140,16 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\backgroundPixel.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\exit.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\save.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
@@ -225,9 +205,12 @@
     <Resource Include="Images\heart.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Audio\explosion.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Audio\click.wav" />
+    <Content Include="Audio\crash.wav" />
+    <Content Include="Audio\explosion.wav" />
+    <Resource Include="Images\buttonBG.png" />
+    <Resource Include="Images\exit.png" />
+    <Resource Include="Images\settings.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

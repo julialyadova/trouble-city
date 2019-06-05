@@ -3,16 +3,26 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:trouble_city">
     <WrapPanel x:Key="settings" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="SwitchSizeButton" Content="size"></Button>
+        <Button x:Name="SwitchSizeButton" Content="size"/>
     </WrapPanel>
-    <ImageBrush x:Key="background" ImageSource="Images/bg.png"></ImageBrush>
-    <ImageBrush x:Key="sky" ImageSource="Images/sky.png"></ImageBrush>
-    <ImageBrush x:Key="mountains" ImageSource="Images/mountains.png" AlignmentY="Bottom"></ImageBrush>
-    <Color x:Key="groundColor" R="55" G="48" B="47" A="255"></Color>
+    <ImageBrush x:Key="buttonsBG" ImageSource="Images/buttonBG.png"/>
+    <ImageBrush x:Key="background" ImageSource="Images/bg.png"/>
+    <ImageBrush x:Key="sky" ImageSource="Images/sky.png"/>
+    <ImageBrush x:Key="mountains" ImageSource="Images/mountains.png" AlignmentY="Bottom"/>
+    <Color x:Key="groundColor" R="55" G="48" B="47" A="255"/>
     <Style x:Key="FontOptions">
         <Setter Property="TextBlock.FontSize" Value="30" />
         <Setter Property="TextBlock.Foreground" Value="DarkRed" />
         <Setter Property="TextBlock.VerticalAlignment" Value="Center" />
         <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+    </Style>
+    <Style x:Key="MenuFontOptions">
+        <Setter Property="TextBlock.FontSize" Value="20" />
+        <Setter Property="TextBlock.Foreground" Value="Black" />
+        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+    </Style>
+    <Style x:Key="LightFontOptions">
+        <Setter Property="TextBlock.FontSize" Value="30" />
+        <Setter Property="TextBlock.Foreground" Value="Ivory" />
     </Style>
 </ResourceDictionary>

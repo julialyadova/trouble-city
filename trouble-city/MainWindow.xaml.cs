@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
-using System.Windows.Media;
-using System.Media;
 
 namespace trouble_city
 {
@@ -18,19 +15,15 @@ namespace trouble_city
         {
             InitializeComponent();
             Game.Initialize(this);
-            //UpdateSize();
             Timer.Interval = new TimeSpan(0,0,0,0,20);
-            Timer.Start();
             Timer.Tick += new EventHandler(PlanetMovement);
             Timer.Tick += new EventHandler(MessageVanish);
             Timer.Tick += new EventHandler(Game.Move);
         }
 
-        private void TurnRight_Click(object sender, RoutedEventArgs e) 
-            => BlasterRotation.Angle += (BlasterRotation.Angle < 80) ? 10 : 0;
+        private void TurnRight_Click(object sender, RoutedEventArgs e) => MoveBlaster(10);
 
-        private void TurnLeft_Click(object sender, RoutedEventArgs e)
-            => BlasterRotation.Angle -= (BlasterRotation.Angle > -80) ? 10 : 0;
+        private void TurnLeft_Click(object sender, RoutedEventArgs e) => MoveBlaster(-10);
 
         private void Shoot_Click(object sender, RoutedEventArgs e)
         {
@@ -41,6 +34,7 @@ namespace trouble_city
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             Game.Start();
+            Goal.Text = Game.Goal.ToString();
             StartButton.IsEnabled = false;
             StartButton.Opacity = 0.4;
         }
@@ -71,19 +65,26 @@ namespace trouble_city
             Game.Resize();
         }
 
+        private void MoveBlaster(int degrees)
+        {
+            if (Math.Abs(BlasterRotation.Angle + degrees) < 80)
+                BlasterRotation.Angle += degrees;
+        }
+
         private void ExitButton_Click(object sender, RoutedEventArgs e) => Close();
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            Game.SwitchOnPauseMode();
             Settings.Opacity = (Settings.IsEnabled) ? 0 : 1;
             Settings.IsEnabled = !Settings.IsEnabled;
+            Game.SwitchOnPauseMode();
+            Game.PlaySound("click");
         }
 
         private void SwitchSize_Click(object sender, RoutedEventArgs e)
         {
             sizeNumber = (sizeNumber == resolutions.Length - 1) ? 0 : sizeNumber + 1;
-            SwitchSize.Content = resolutions[sizeNumber].Width + " x " + resolutions[sizeNumber].Height;
+            SizeText.Text = resolutions[sizeNumber].Width + " x " + resolutions[sizeNumber].Height;
             UpdateSize();
         }
 

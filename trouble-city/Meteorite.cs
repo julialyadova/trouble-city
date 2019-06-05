@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 
 namespace trouble_city
 {
@@ -13,20 +12,20 @@ namespace trouble_city
 
         Vector direction;
 
-        public Meteorite(Vector blasterDirection)
+        public Meteorite(Vector vector)
         {
             Img = Game.GetImageByName("meteorite");
             var size = new Random().Next(40, 160);
             Img.Width = size;
             Health = size;
             Radius = size / 2;
-            direction = blasterDirection;
+            direction = vector;
         }
 
         public void Act()
         {
-            Canvas.SetTop(Img, Position.Y + direction.Y * 4);
-            Canvas.SetLeft(Img, Position.X + direction.X * 4);
+            Canvas.SetTop(Img, Position.Y + direction.Y * 5);
+            Canvas.SetLeft(Img, Position.X + direction.X * 5);
             foreach (var other in Game.CanvasObjects)
             {
                 if (other == this || !CrashedInto(other)) continue;
@@ -34,27 +33,31 @@ namespace trouble_city
                 other.Health -= Health;
                 Health -= enemyHealth;
             }
-            if (Health <= 0)
-            {
-                Game.Add(new Debris(this), (int)Position.Y, (int)Position.X);
-                Game.Materials += Radius * 2;
-            }
-            if (Game.ReachedBottomLine(this))
-            {
-                Health = 0;
-                Game.Add(new Explosion(this), (int)Position.Y - Radius*2, (int)Position.X - Radius);
-                if (Game.InCityBounds(this))
-                {
-                    Game.SendMessage("Метеорит упал на город!");
-                    Game.DecreaseHealth();
-                }   
-            }
+            if (Health <= 0) Crash();
+            if (Game.ReachedBottomLine(this)) Explode();
         }
 
         public bool CrashedInto(IVisualised other)
         {
             return (Math.Abs(Position.X + Radius - other.Position.X - other.Radius) < Radius + other.Radius)
                 && (Math.Abs(Position.Y + Radius - other.Position.Y - other.Radius) < Radius + other.Radius);
+        }
+
+        private void Crash()
+        {
+            Game.Add(new Debris(this), (int)Position.Y, (int)Position.X);
+            Game.Materials += Radius * 2;
+        }
+
+        private void Explode()
+        {
+            Game.Add(new Explosion(this), (int)Position.Y - Radius * 2, (int)Position.X - Radius);
+            if (Game.InCityBounds(this))
+            {
+                Game.SendMessage("Метеорит упал на город!");
+                Game.DecreaseHealth();
+            }
+            Game.Remove(this);
         }
     }
 }
