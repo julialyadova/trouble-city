@@ -1,0 +1,16 @@
+[{
+	"Name":"аскорбинка",
+	"PNGName":"shot",
+	"MinSize":20,
+	"MaxSize":20,
+	"Speed":12,
+	"Destiny":2
+},
+{
+	"Name":"кислота",
+	"PNGName":"acid",
+	"MinSize":30,
+	"MaxSize":30,
+	"Speed":8,
+	"Destiny":6
+}]

@@ -10,22 +10,34 @@ namespace trouble_city
         public int Radius { get; }
         public int Health { get; set; }
 
-        Vector direction;
+        public string ImageName;
 
-        public Meteorite(Vector vector)
+        Vector direction;
+        int speed;
+
+        /// <summary>
+        /// конструктор для создания метеоритоподбных
+        /// </summary>
+        /// <param name="directVector">направление падения</param>
+        /// <param name="size">размер (адекватный - от 20 до 160)</param>
+        /// <param name="imageName">нахвание изображения</param>
+        /// <param name="preSpeed">скорость падения</param>
+        /// <param name="preDestiny">плотность. влияет на здоровье и наносимый урон</param>
+        public Meteorite(Vector directVector, int size, string imageName, int preSpeed, int preDestiny)
         {
-            Img = Game.GetImageByName("meteorite");
-            var size = new Random().Next(40, 160);
+            Img = Game.GetImageByName(imageName);
             Img.Width = size;
-            Health = size;
+            Health = size * preDestiny;
             Radius = size / 2;
-            direction = vector;
+            ImageName = imageName;
+            direction = directVector;
+            speed = preSpeed;
         }
 
         public void Act()
         {
-            Canvas.SetTop(Img, Position.Y + direction.Y * 5);
-            Canvas.SetLeft(Img, Position.X + direction.X * 5);
+            Canvas.SetTop(Img, Position.Y + direction.Y * speed);
+            Canvas.SetLeft(Img, Position.X + direction.X * speed);
             foreach (var other in Game.CanvasObjects)
             {
                 if (other == this || !CrashedInto(other)) continue;

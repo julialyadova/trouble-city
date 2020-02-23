@@ -16,6 +16,14 @@ namespace trouble_city
         static int goal;
         static int rainAngle;
 
+        //метеориты
+        static VisualizedPrefab[] meteorites;
+        static int currentMeteorite = 0;
+
+        //пульки
+        static VisualizedPrefab[] shootings;
+        static int currentShoot = 0;
+
         public static Vector CenterPoint { get { return centerPoint; } }
         public static int Goal { get { return goal; } }
         public static bool GameOver =true;
@@ -24,15 +32,23 @@ namespace trouble_city
         static List<IVisualised> canvasObjects = new List<IVisualised>();
         public static List<IVisualised> ToAddObjects = new List<IVisualised>();
 
-        public static void Initialize(MainWindow gameWindow) => window = gameWindow;
+        public static void Initialize(MainWindow gameWindow)
+        {
+            window = gameWindow;
+            centerPoint = new Vector(Canvas.GetLeft(window.Blaster) + window.Blaster.Width / 2,
+                Canvas.GetTop(window.Blaster) + window.Blaster.Height / 2);
+            meteorites = VisualizedPrefab.LoadFromJSON("meteorites");
+            shootings = VisualizedPrefab.LoadFromJSON("shootings");
+        }
 
         public static void Start()
         {
             if (window == null) throw new NullReferenceException("Initialize() must be called before Start()");
-            centerPoint = new Vector(Canvas.GetLeft(window.Blaster) + window.Blaster.Width / 2,
-                Canvas.GetTop(window.Blaster) + window.Blaster.Height / 2);
+
             goal = 10;
-            rainAngle = -35;
+            rainAngle = -80;
+
+
             GameOver = false;
             Materials = 0;
             SetTimers();
@@ -61,7 +77,28 @@ namespace trouble_city
         }
 
         public static void CreateMeteorite(object sender, EventArgs e)
-            => Add(new Meteorite(Vector.FromAngle(rainAngle)), -50, new Random().Next(0, (int)centerPoint.X));
+        {
+            var meteor = meteorites[currentMeteorite];
+            Add(new Meteorite(Vector.FromAngle(rainAngle),
+                              new Random().Next(meteor.MinSize, meteor.MaxSize),
+                              meteor.PNGName,
+                              meteor.Speed,
+                              meteor.Destiny),
+                -50, new Random().Next(0, (int)centerPoint.X));
+        }
+
+        public static void Shoot()
+        {
+            var shot = shootings[currentShoot];
+            if (Game.GameOver) return;
+                new Shot(
+                        Vector.FromAngle(90 - window.BlasterRotation.Angle),
+                        shot.PNGName,
+                        shot.MaxSize,
+                        shot.Speed,
+                        shot.Destiny
+                        ).Set();
+        }
 
         public static void Remove(IVisualised obj) => obj.Health = 0;
 
@@ -86,7 +123,7 @@ namespace trouble_city
 
         public static void DecreaseHealth()
         {
-            if (window.HealthPanel.Children.Count == 0)
+            if (window.HealthPanel.Children.Count == 0 )
                 End("вы проиграли!");
             else
                 window.HealthPanel.Children.RemoveAt(0);
@@ -110,9 +147,9 @@ namespace trouble_city
                 || obj.Position.Y < -100 || obj.Position.Y > window.SkyCanvas.Height;
         }
 
-        public static void SendMessage(string name)
+        public static void SendMessage(string message)
         {
-            window.EventTextBlock.Text = name;
+            window.EventTextBlock.Text = message;
             window.EventTextBlock.Opacity = 1;
         }
 
@@ -144,6 +181,22 @@ namespace trouble_city
             window.BlasterControlPanel.IsEnabled = !window.Settings.IsEnabled;
         }
 
+        public static string SwitchMeteorite()
+        {
+            currentMeteorite++;
+            if (currentMeteorite == meteorites.Length)
+                currentMeteorite = 0;
+            return meteorites[currentMeteorite].Name;
+        }
+
+        public static string SwitchShoot()
+        {
+            currentShoot++;
+            if (currentShoot == shootings.Length)
+                currentShoot = 0;
+            return shootings[currentShoot].Name;
+        }
+
         public static void End(string text)
         {
             SendMessage(text + " Общий счёт: " + (Materials + window.Houses.Children.Count*200));
@@ -151,13 +204,15 @@ namespace trouble_city
             window.StartButton.IsEnabled = true;
             window.GiveUpButton.IsEnabled = false;
             window.StartButton.Opacity = 1;
-            window.Timer.IsEnabled = false;
+            window.Timer.Stop();
             meteoriteTimer.Stop();
             meteoriteTimer = new DispatcherTimer();
-            window.StartButton.IsEnabled = true;
+
             foreach (var obj in canvasObjects)
+            {
+                obj.Health = 0;
                 window.SkyCanvas.Children.Remove(obj.Img);
-            canvasObjects.Clear();
+            }
             ToAddObjects.Clear();
         }
 
@@ -170,7 +225,7 @@ namespace trouble_city
         static void SetTimers()
         {
             meteoriteTimer = new DispatcherTimer();
-            meteoriteTimer.Interval = new TimeSpan(0, 0, 0, 4);
+            meteoriteTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000);
             meteoriteTimer.Start();
             meteoriteTimer.Tick += new EventHandler(CreateMeteorite);
             window.Timer.IsEnabled = true;

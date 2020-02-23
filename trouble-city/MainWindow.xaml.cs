@@ -27,8 +27,7 @@ namespace trouble_city
 
         private void Shoot_Click(object sender, RoutedEventArgs e)
         {
-            if (Game.GameOver) return;
-            new Shot(Vector.FromAngle(90 - BlasterRotation.Angle)).Set();
+            Game.Shoot();
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
@@ -88,6 +87,16 @@ namespace trouble_city
             UpdateSize();
         }
 
-        private void GiveUpButton_Click(object sender, RoutedEventArgs e) => Game.End("Поражение!");
+        private void SwitchMeteor_Click(object sender, RoutedEventArgs e)
+        {
+            MeteorType.Text = Game.SwitchMeteorite();
+        }
+
+        private void SwitchShot_Click(object sender, RoutedEventArgs e)
+        {
+            ShotType.Text = Game.SwitchShoot();
+        }
+
+        private void GiveUpButton_Click(object sender, RoutedEventArgs e) => Game.End("Ты сам выбрал поражение");
     }
 }

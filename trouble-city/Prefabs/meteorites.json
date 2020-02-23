@@ -1,0 +1,24 @@
+[{
+	"Name":"метеорит",
+	"PNGName":"meteorite",
+	"MinSize":40,
+	"MaxSize":140,
+	"Speed":5,
+	"Destiny":2
+},
+{
+	"Name":"маленький метеорит",
+	"PNGName":"meteorite",
+	"MinSize":20,
+	"MaxSize":40,
+	"Speed":7,
+	"Destiny":1
+},
+{
+	"Name":"котлетка",
+	"PNGName":"meatball",
+	"MinSize":30,
+	"MaxSize":60,
+	"Speed":4,
+	"Destiny":1
+}]

@@ -11,7 +11,7 @@ namespace trouble_city
 
         public Debris(Meteorite meteor)
         {
-            Img = Game.GetImageByName("meteorite_crash");
+            Img = Game.GetImageByName(meteor.ImageName + "_crash");
             Img.Width = meteor.Radius*2;
             Health = 1;
             Game.PlaySound("crash");

@@ -10,20 +10,22 @@ namespace trouble_city
         public int Health { get; set; }
 
         Vector direction;
+        int speed;
 
-        public Shot(Vector blasterDirection)
+        public Shot(Vector blasterDirection, string imageName, int size, int preSpeed, int preDestiny)
         {
-            Img = Game.GetImageByName("shot");
-            Img.Width = 20;
-            Radius = 10;
-            Health = 20;
+            Img = Game.GetImageByName(imageName);
+            Img.Width = size;
+            Radius = size/2;
+            Health = size*preDestiny;
             direction = blasterDirection;
+            speed = preSpeed;
         }
 
         public void Act()
         {
-            Canvas.SetTop(Img, Position.Y + direction.Y * 10);
-            Canvas.SetLeft(Img, Position.X + direction.X * 10);
+            Canvas.SetTop(Img, Position.Y + direction.Y * speed);
+            Canvas.SetLeft(Img, Position.X + direction.X * speed);
         }
 
         public void Set()

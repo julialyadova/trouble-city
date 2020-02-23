@@ -59,6 +59,14 @@
             <Button Click="SwitchSize_Click">
                 <TextBlock x:Name="SizeText" Text="1024 x 786" Style="{StaticResource MenuFontOptions}"/>
             </Button>
+           <TextBlock Text="тип метеорита" HorizontalAlignment="Center" Style="{StaticResource MenuFontOptions}"/>
+            <Button Click="SwitchMeteor_Click">
+                <TextBlock x:Name="MeteorType" Text="метеорит" Style="{StaticResource MenuFontOptions}"/>
+            </Button>
+           <TextBlock Text="тип снаряда" HorizontalAlignment="Center" Style="{StaticResource MenuFontOptions}"/>
+            <Button Click="SwitchShot_Click">
+                <TextBlock x:Name="ShotType" Text="аскорбинка" Style="{StaticResource MenuFontOptions}"/>
+            </Button>
         </WrapPanel>
 
         <Rectangle Grid.Row="2">
